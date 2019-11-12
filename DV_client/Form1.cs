@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DV_server;
+using DV_client.Server;
 
 namespace DV_client
 {
@@ -20,13 +20,18 @@ namespace DV_client
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var server = new Server();
-            List<Email> records = server.GetAllRecords();
+            var server = new DV_serverClient();
+            Console.WriteLine(server.GetEmails());
+
+
+            /*List<Email> records = server.GetAllRecords();
 
             foreach(Email email in records)
             {
                 DGV_emails.Rows.Add();
-            }
+            }*/
+
+            server.Close();
         }
     }
 }
