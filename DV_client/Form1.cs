@@ -21,12 +21,11 @@ namespace DV_client
         private void Form1_Load(object sender, EventArgs e)
         {
             var server = new DV_serverClient();
-            Console.WriteLine(server.GetEmails());
+            List<Email> emails = new List<Email>(server.GetEmails());
 
+            MessageBox.Show(emails.Count + "");
 
-            /*List<Email> records = server.GetAllRecords();
-
-            foreach(Email email in records)
+            /*foreach(Email email in emails)
             {
                 DGV_emails.Rows.Add();
             }*/
