@@ -51,6 +51,12 @@ namespace DV_client.Server {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/GetEmails", ReplyAction="http://tempuri.org/IDV_server/GetEmailsResponse")]
         System.Threading.Tasks.Task<DV_client.Server.Email[]> GetEmailsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/saveEmail", ReplyAction="http://tempuri.org/IDV_server/saveEmailResponse")]
+        bool saveEmail(DV_client.Server.Email email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/saveEmail", ReplyAction="http://tempuri.org/IDV_server/saveEmailResponse")]
+        System.Threading.Tasks.Task<bool> saveEmailAsync(DV_client.Server.Email email);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -86,6 +92,14 @@ namespace DV_client.Server {
         
         public System.Threading.Tasks.Task<DV_client.Server.Email[]> GetEmailsAsync() {
             return base.Channel.GetEmailsAsync();
+        }
+        
+        public bool saveEmail(DV_client.Server.Email email) {
+            return base.Channel.saveEmail(email);
+        }
+        
+        public System.Threading.Tasks.Task<bool> saveEmailAsync(DV_client.Server.Email email) {
+            return base.Channel.saveEmailAsync(email);
         }
     }
 }

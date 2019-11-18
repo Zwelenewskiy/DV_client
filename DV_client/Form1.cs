@@ -18,14 +18,15 @@ namespace DV_client
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void TSMI_saveEmail_Click(object sender, EventArgs e)
         {
-            var server = new DV_serverClient();
-            List<Email> emails = new List<Email>(server.GetEmails());
+            using(var form = new EmailHandlerForm(new EmailHandlerSettings()
+            {                
 
-            MessageBox.Show(emails.Count + "");
-
-            server.Close();
+            }))
+            {
+                form.ShowDialog();
+            }
         }
     }
 }

@@ -13,16 +13,35 @@
   <wsdl:message name="IDV_server_GetEmails_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetEmailsResponse" />
   </wsdl:message>
+  <wsdl:message name="IDV_server_saveEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:saveEmail" />
+  </wsdl:message>
+  <wsdl:message name="IDV_server_saveEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:saveEmailResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDV_server">
     <wsdl:operation name="GetEmails">
       <wsdl:input wsaw:Action="http://tempuri.org/IDV_server/GetEmails" message="tns:IDV_server_GetEmails_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDV_server/GetEmailsResponse" message="tns:IDV_server_GetEmails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="saveEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDV_server/saveEmail" message="tns:IDV_server_saveEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDV_server/saveEmailResponse" message="tns:IDV_server_saveEmail_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDV_server" type="tns:IDV_server">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetEmails">
       <soap:operation soapAction="http://tempuri.org/IDV_server/GetEmails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveEmail">
+      <soap:operation soapAction="http://tempuri.org/IDV_server/saveEmail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
