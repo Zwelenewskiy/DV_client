@@ -25,11 +25,6 @@ namespace DV_client
 
             MessageBox.Show(emails.Count + "");
 
-            /*foreach(Email email in emails)
-            {
-                DGV_emails.Rows.Add();
-            }*/
-
             server.Close();
         }
     }
