@@ -20,9 +20,9 @@ namespace DV_client
 
         private void TSMI_saveEmail_Click(object sender, EventArgs e)
         {
-            using(var form = new EmailHandlerForm(new EmailHandlerSettings()
-            {                
-
+            using (var form = new EmailHandlerForm(new UserControlSettings()
+            {
+                condition = UserControlManager.UserConditions.saveEmail
             }))
             {
                 form.ShowDialog();

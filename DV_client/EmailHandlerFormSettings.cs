@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DV_client
 {
-    public class EmailHandlerSettings
+    public class EmailHandlerFormSettings
     {
         
     }

@@ -13,14 +13,24 @@ namespace DV_client
 {
     public partial class EmailHandlerForm : Form
     {
-        public EmailHandlerForm(EmailHandlerSettings settings)
+        private UserControlSettings input_settings;
+
+        public EmailHandlerForm(UserControlSettings settings)
         {
             InitializeComponent();
+
+            input_settings = settings;
         }
 
         private void EmailHandlerForm_Load(object sender, EventArgs e)
         {
-
+            switch (input_settings.condition)
+            {
+                case UserControlManager.UserConditions.saveEmail:
+                    Text = "Сохранение письма";
+                    BT_doEmail.Text = "Сохранить";
+                    break;
+            }
         }
 
         private void BT_doEmail_Click(object sender, EventArgs e)

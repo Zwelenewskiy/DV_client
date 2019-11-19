@@ -59,7 +59,7 @@
     <Compile Include="EmailHandlerForm.Designer.cs">
       <DependentUpon>EmailHandlerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmailHandlerSettings.cs" />
+    <Compile Include="EmailHandlerFormSettings.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
