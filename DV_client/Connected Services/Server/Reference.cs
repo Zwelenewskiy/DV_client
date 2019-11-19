@@ -22,6 +22,33 @@ namespace DV_client.Server {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string contentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] copyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime dateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fromField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string headerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] hidden_copyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] tagsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] toField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -29,6 +56,123 @@ namespace DV_client.Server {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string content {
+            get {
+                return this.contentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.contentField, value) != true)) {
+                    this.contentField = value;
+                    this.RaisePropertyChanged("content");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] copy {
+            get {
+                return this.copyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.copyField, value) != true)) {
+                    this.copyField = value;
+                    this.RaisePropertyChanged("copy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime date {
+            get {
+                return this.dateField;
+            }
+            set {
+                if ((this.dateField.Equals(value) != true)) {
+                    this.dateField = value;
+                    this.RaisePropertyChanged("date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string from {
+            get {
+                return this.fromField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fromField, value) != true)) {
+                    this.fromField = value;
+                    this.RaisePropertyChanged("from");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string header {
+            get {
+                return this.headerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.headerField, value) != true)) {
+                    this.headerField = value;
+                    this.RaisePropertyChanged("header");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] hidden_copy {
+            get {
+                return this.hidden_copyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.hidden_copyField, value) != true)) {
+                    this.hidden_copyField = value;
+                    this.RaisePropertyChanged("hidden_copy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] tags {
+            get {
+                return this.tagsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tagsField, value) != true)) {
+                    this.tagsField = value;
+                    this.RaisePropertyChanged("tags");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] to {
+            get {
+                return this.toField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.toField, value) != true)) {
+                    this.toField = value;
+                    this.RaisePropertyChanged("to");
+                }
             }
         }
         
