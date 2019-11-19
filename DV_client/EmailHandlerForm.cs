@@ -20,6 +20,7 @@ namespace DV_client
         private List<int> tag = new List<int>();
         private int index;
         private string type;
+        private Users users;
 
         public EmailHandlerForm(UserControlSettings settings)
         {
@@ -29,15 +30,18 @@ namespace DV_client
 
         private void EmailHandlerForm_Load(object sender, EventArgs e)
         {
-            /*((DataGridViewComboBoxColumn)DGV_to.Columns[0]).DataSource = new List<User>((User[])UserControlManager.ActionHandler(new UserControlSettings()
+            users = ((Users)UserControlManager.ActionHandler(new UserControlSettings()
             {
                 condition = UserControlManager.UserConditions.getUsers
-            }));*/
+            }));
 
-            ((DataGridViewComboBoxColumn)DGV_to.Columns[0]).DataSource = new List<string>() { "1", "2", "3" };
+            ((DataGridViewComboBoxColumn)DGV_to.Columns[0]).DataSource = users.data;
+            ((DataGridViewComboBoxColumn)DGV_copy.Columns[0]).DataSource = users.data;
+            ((DataGridViewComboBoxColumn)DGV_hidden_copy.Columns[0]).DataSource = users.data;
+
+            /*((DataGridViewComboBoxColumn)DGV_to.Columns[0]).DataSource = new List<string>() { "1", "2", "3" };
             ((DataGridViewComboBoxColumn)DGV_copy.Columns[0]).DataSource = new List<string>() { "1", "2", "3" };
-            ((DataGridViewComboBoxColumn)DGV_hidden_copy.Columns[0]).DataSource = new List<string>() { "1", "2", "3" };
-            ((DataGridViewComboBoxColumn)DGV_tag.Columns[0]).DataSource = new List<string>() { "1", "2", "3" };
+            ((DataGridViewComboBoxColumn)DGV_hidden_copy.Columns[0]).DataSource = new List<string>() { "1", "2", "3" };*/
 
             switch (input_settings.condition)
             {
@@ -70,36 +74,41 @@ namespace DV_client
         //Добавление в массивы
         private void ChangeCell(object sender, EventArgs e)
         {
-            switch (type)
+            int selected_index = (sender as ComboBox).SelectedIndex;
+
+            if (selected_index != -1)
             {
-                case "to":
-                    if(index <= to.Count - 1)
-                        to[index] = (sender as ComboBox).SelectedIndex;
-                    else
-                        to.Add((sender as ComboBox).SelectedIndex);
-                    break;
+                switch (type)
+                {
+                    case "to":
+                        if (index <= to.Count - 1)
+                            to[index] = users.IDs[selected_index];
+                        else
+                            to.Add(users.IDs[selected_index]);
+                        break;
 
-                case "copy":
-                    if (index <= copy.Count - 1)
-                        copy[index] = (sender as ComboBox).SelectedIndex;
-                    else
-                        copy.Add((sender as ComboBox).SelectedIndex);
-                    break;
+                    case "copy":
+                        if (index <= copy.Count - 1)
+                            copy[index] = users.IDs[selected_index];
+                        else
+                            copy.Add(users.IDs[selected_index]);
+                        break;
 
-                case "hidden_copy":
-                    if (index <= hidden_copy.Count - 1)
-                        hidden_copy[index] = (sender as ComboBox).SelectedIndex;
-                    else
-                        hidden_copy.Add((sender as ComboBox).SelectedIndex);
-                    break;
+                    case "hidden_copy":
+                        if (index <= hidden_copy.Count - 1)
+                            hidden_copy[index] = users.IDs[selected_index];
+                        else
+                            hidden_copy.Add(users.IDs[selected_index]);
+                        break;
 
-                case "tag":
-                    if (index <= tag.Count - 1)
-                        tag[index] = (sender as ComboBox).SelectedIndex;
-                    else
-                        tag.Add((sender as ComboBox).SelectedIndex);
-                    break;
-            }
+                    case "tag":
+                        if (index <= tag.Count - 1)
+                            tag[index] = users.IDs[selected_index];
+                        else
+                            tag.Add(users.IDs[selected_index]);
+                        break;
+                }
+            }            
         }
 
         private void CellClick(object sender, DataGridViewCellEventArgs e)
