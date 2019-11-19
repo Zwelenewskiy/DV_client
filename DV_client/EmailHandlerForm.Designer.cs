@@ -44,14 +44,14 @@
             this.DGV_hidden_copy = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGV_tags = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_to)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_copy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_hidden_copy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_tags)).BeginInit();
             this.SuspendLayout();
             // 
             // BT_doEmail
@@ -201,19 +201,19 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Скрытая копия:";
             // 
-            // dataGridView1
+            // DGV_tags
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.ColumnHeadersVisible = false;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGV_tags.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DGV_tags.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_tags.ColumnHeadersVisible = false;
+            this.DGV_tags.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3});
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(730, 300);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(218, 150);
-            this.dataGridView1.TabIndex = 15;
+            this.DGV_tags.EnableHeadersVisualStyles = false;
+            this.DGV_tags.Location = new System.Drawing.Point(730, 300);
+            this.DGV_tags.Name = "DGV_tags";
+            this.DGV_tags.RowHeadersVisible = false;
+            this.DGV_tags.Size = new System.Drawing.Size(218, 150);
+            this.DGV_tags.TabIndex = 15;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -242,7 +242,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(963, 517);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DGV_tags);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.DGV_hidden_copy);
             this.Controls.Add(this.label6);
@@ -266,7 +266,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_to)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_copy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_hidden_copy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_tags)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,7 +290,7 @@
         private System.Windows.Forms.DataGridView DGV_hidden_copy;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGV_tags;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;

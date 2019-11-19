@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DV_client.Server;
 
 namespace DV_client
 {
@@ -39,7 +38,14 @@ namespace DV_client
                 condition = UserControlManager.UserConditions.saveEmail,
                 email = new Email()
                 {
-                    
+                    content = RTB_content.Text,
+                    date = DTP_date.Value,
+                    from = TB_from.Text,
+                    header = TB_header.Text,
+                    to = DGV_to,
+                    copy = DGV_copy,
+                    hidden_copy = DGV_hidden_copy,
+                    tags = DGV_tags
                 }
             });
         }        

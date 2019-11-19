@@ -14,9 +14,9 @@ namespace DV_client
         public string header;
         public DateTime date;
         public string content;
-        public DataGridView _to;
-        public DataGridView _copy;
-        public DataGridView _hidden_copy;
-        public DataGridView _tags;
+        public DataGridView to;
+        public DataGridView copy;
+        public DataGridView hidden_copy;
+        public DataGridView tags;
     }
 }
