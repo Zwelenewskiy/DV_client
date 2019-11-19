@@ -39,19 +39,19 @@
             this.label4 = new System.Windows.Forms.Label();
             this.DGV_to = new System.Windows.Forms.DataGridView();
             this.DGV_copy = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.DGV_hidden_copy = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
-            this.DGV_tags = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DGV_tag = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_to)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_copy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_hidden_copy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_tags)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_tag)).BeginInit();
             this.SuspendLayout();
             // 
             // BT_doEmail
@@ -136,33 +136,35 @@
             // 
             this.DGV_to.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DGV_to.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_to.ColumnHeadersVisible = false;
             this.DGV_to.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
             this.DGV_to.EnableHeadersVisualStyles = false;
             this.DGV_to.Location = new System.Drawing.Point(481, 117);
             this.DGV_to.Name = "DGV_to";
             this.DGV_to.RowHeadersVisible = false;
-            this.DGV_to.Size = new System.Drawing.Size(218, 150);
+            this.DGV_to.Size = new System.Drawing.Size(220, 150);
             this.DGV_to.TabIndex = 9;
+            this.DGV_to.Tag = "to";
+            this.DGV_to.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
+            this.DGV_to.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.EditingControlShowing);
             // 
             // DGV_copy
             // 
             this.DGV_copy.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DGV_copy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_copy.ColumnHeadersVisible = false;
             this.DGV_copy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1});
             this.DGV_copy.EnableHeadersVisualStyles = false;
             this.DGV_copy.Location = new System.Drawing.Point(730, 117);
             this.DGV_copy.Name = "DGV_copy";
             this.DGV_copy.RowHeadersVisible = false;
-            this.DGV_copy.Size = new System.Drawing.Size(218, 150);
+            this.DGV_copy.Size = new System.Drawing.Size(220, 150);
             this.DGV_copy.TabIndex = 11;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Адрес";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 200;
+            this.DGV_copy.Tag = "copy";
+            this.DGV_copy.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
+            this.DGV_copy.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.EditingControlShowing);
             // 
             // label5
             // 
@@ -177,20 +179,18 @@
             // 
             this.DGV_hidden_copy.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DGV_hidden_copy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_hidden_copy.ColumnHeadersVisible = false;
             this.DGV_hidden_copy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2});
             this.DGV_hidden_copy.EnableHeadersVisualStyles = false;
             this.DGV_hidden_copy.Location = new System.Drawing.Point(481, 300);
             this.DGV_hidden_copy.Name = "DGV_hidden_copy";
             this.DGV_hidden_copy.RowHeadersVisible = false;
-            this.DGV_hidden_copy.Size = new System.Drawing.Size(218, 150);
+            this.DGV_hidden_copy.Size = new System.Drawing.Size(220, 150);
             this.DGV_hidden_copy.TabIndex = 13;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Адрес";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 200;
+            this.DGV_hidden_copy.Tag = "hidden_copy";
+            this.DGV_hidden_copy.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
+            this.DGV_hidden_copy.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.EditingControlShowing);
             // 
             // label6
             // 
@@ -201,25 +201,22 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Скрытая копия:";
             // 
-            // DGV_tags
+            // DGV_tag
             // 
-            this.DGV_tags.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DGV_tags.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_tags.ColumnHeadersVisible = false;
-            this.DGV_tags.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGV_tag.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DGV_tag.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_tag.ColumnHeadersVisible = false;
+            this.DGV_tag.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3});
-            this.DGV_tags.EnableHeadersVisualStyles = false;
-            this.DGV_tags.Location = new System.Drawing.Point(730, 300);
-            this.DGV_tags.Name = "DGV_tags";
-            this.DGV_tags.RowHeadersVisible = false;
-            this.DGV_tags.Size = new System.Drawing.Size(218, 150);
-            this.DGV_tags.TabIndex = 15;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Адрес";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 200;
+            this.DGV_tag.EnableHeadersVisualStyles = false;
+            this.DGV_tag.Location = new System.Drawing.Point(730, 300);
+            this.DGV_tag.Name = "DGV_tag";
+            this.DGV_tag.RowHeadersVisible = false;
+            this.DGV_tag.Size = new System.Drawing.Size(220, 150);
+            this.DGV_tag.TabIndex = 15;
+            this.DGV_tag.Tag = "tag";
+            this.DGV_tag.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
+            this.DGV_tag.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.EditingControlShowing);
             // 
             // label7
             // 
@@ -232,9 +229,33 @@
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "Адрес";
+            this.Column1.HeaderText = "Column1";
             this.Column1.Name = "Column1";
             this.Column1.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Адрес";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn2.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Адрес";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn1.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Адрес";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn3.Width = 200;
             // 
             // EmailHandlerForm
             // 
@@ -242,7 +263,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(963, 517);
-            this.Controls.Add(this.DGV_tags);
+            this.Controls.Add(this.DGV_tag);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.DGV_hidden_copy);
             this.Controls.Add(this.label6);
@@ -266,7 +287,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_to)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_copy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_hidden_copy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_tags)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_tag)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,14 +306,14 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView DGV_to;
         private System.Windows.Forms.DataGridView DGV_copy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView DGV_hidden_copy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView DGV_tags;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridView DGV_tag;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;
     }
 }

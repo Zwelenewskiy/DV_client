@@ -11,10 +11,11 @@ namespace DV_client
     {
         public enum UserConditions
         {
-            saveEmail
+            saveEmail,
+            getUsers
         }
 
-        public static void ActionHandler(UserControlSettings settings)
+        public static object ActionHandler(UserControlSettings settings)
         {
             using(var server = new DV_serverClient())
             {
@@ -22,29 +23,29 @@ namespace DV_client
                 {                 
                     case UserConditions.saveEmail:
 
-                        string[] to_tmp = new string[settings.email.to.RowCount - 1];
-                        string[] copy_tmp = new string[settings.email.copy.RowCount - 1];
-                        string[] hidden_copy_tmp = new string[settings.email.hidden_copy.RowCount - 1];
-                        string[] tags_tmp = new string[settings.email.tags.RowCount - 1];
+                        int[] to_tmp = new int[settings.email.to.Count];
+                        int[] copy_tmp = new int[settings.email.copy.Count];
+                        int[] hidden_copy_tmp = new int[settings.email.hidden_copy.Count];
+                        int[] tags_tmp = new int[settings.email.tags.Count];
 
-                        for(int i = 0; i < settings.email.to.RowCount - 1; i++)
+                        for(int i = 0; i < settings.email.to.Count; i++)
                         {
-                            to_tmp[i] = settings.email.to.Rows[0].Cells[0].Value.ToString();
+                            to_tmp[i] = settings.email.to[i];
                         }
 
-                        for (int i = 0; i < settings.email.copy.RowCount - 1; i++)
+                        for (int i = 0; i < settings.email.copy.Count; i++)
                         {
-                            copy_tmp[i] = settings.email.copy.Rows[0].Cells[0].Value.ToString();
+                            copy_tmp[i] = settings.email.copy[i];
                         }
 
-                        for (int i = 0; i < settings.email.hidden_copy.RowCount - 1; i++)
+                        for (int i = 0; i < settings.email.hidden_copy.Count; i++)
                         {
-                            hidden_copy_tmp[i] = settings.email.hidden_copy.Rows[0].Cells[0].Value.ToString();
+                            hidden_copy_tmp[i] = settings.email.hidden_copy[i];
                         }
 
-                        for (int i = 0; i < settings.email.tags.RowCount - 1; i++)
+                        for (int i = 0; i < settings.email.tags.Count; i++)
                         {
-                            tags_tmp[i] = settings.email.tags.Rows[0].Cells[0].Value.ToString();
+                            tags_tmp[i] = settings.email.tags[i];
                         }
 
                         server.saveEmail(new Server.Email()
@@ -59,9 +60,13 @@ namespace DV_client
                             tags = tags_tmp,        
                         });
                         break;
+
+                    case UserConditions.getUsers:
+                        return server.GetUsers();
                 }
 
                 server.Close();
+                return null;
             }            
         }
     }

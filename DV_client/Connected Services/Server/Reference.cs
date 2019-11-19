@@ -26,7 +26,7 @@ namespace DV_client.Server {
         private string contentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] copyField;
+        private int[] copyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime dateField;
@@ -38,16 +38,16 @@ namespace DV_client.Server {
         private string headerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] hidden_copyField;
+        private int[] hidden_copyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] tagsField;
+        private int[] tagsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] toField;
+        private int[] toField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -73,7 +73,7 @@ namespace DV_client.Server {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] copy {
+        public int[] copy {
             get {
                 return this.copyField;
             }
@@ -125,7 +125,7 @@ namespace DV_client.Server {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] hidden_copy {
+        public int[] hidden_copy {
             get {
                 return this.hidden_copyField;
             }
@@ -151,7 +151,7 @@ namespace DV_client.Server {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] tags {
+        public int[] tags {
             get {
                 return this.tagsField;
             }
@@ -164,7 +164,7 @@ namespace DV_client.Server {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] to {
+        public int[] to {
             get {
                 return this.toField;
             }
@@ -172,6 +172,115 @@ namespace DV_client.Server {
                 if ((object.ReferenceEquals(this.toField, value) != true)) {
                     this.toField = value;
                     this.RaisePropertyChanged("to");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/DV_server")]
+    [System.SerializableAttribute()]
+    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string emailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lastnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string patronymicField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string email {
+            get {
+                return this.emailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.emailField, value) != true)) {
+                    this.emailField = value;
+                    this.RaisePropertyChanged("email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lastname {
+            get {
+                return this.lastnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lastnameField, value) != true)) {
+                    this.lastnameField = value;
+                    this.RaisePropertyChanged("lastname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nameField, value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string patronymic {
+            get {
+                return this.patronymicField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.patronymicField, value) != true)) {
+                    this.patronymicField = value;
+                    this.RaisePropertyChanged("patronymic");
                 }
             }
         }
@@ -201,6 +310,12 @@ namespace DV_client.Server {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/saveEmail", ReplyAction="http://tempuri.org/IDV_server/saveEmailResponse")]
         System.Threading.Tasks.Task<bool> saveEmailAsync(DV_client.Server.Email email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/GetUsers", ReplyAction="http://tempuri.org/IDV_server/GetUsersResponse")]
+        DV_client.Server.User[] GetUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/GetUsers", ReplyAction="http://tempuri.org/IDV_server/GetUsersResponse")]
+        System.Threading.Tasks.Task<DV_client.Server.User[]> GetUsersAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -244,6 +359,14 @@ namespace DV_client.Server {
         
         public System.Threading.Tasks.Task<bool> saveEmailAsync(DV_client.Server.Email email) {
             return base.Channel.saveEmailAsync(email);
+        }
+        
+        public DV_client.Server.User[] GetUsers() {
+            return base.Channel.GetUsers();
+        }
+        
+        public System.Threading.Tasks.Task<DV_client.Server.User[]> GetUsersAsync() {
+            return base.Channel.GetUsersAsync();
         }
     }
 }
