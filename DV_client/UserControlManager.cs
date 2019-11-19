@@ -48,7 +48,7 @@ namespace DV_client
                             tags_tmp[i] = settings.email.tags[i];
                         }
 
-                        server.saveEmail(new Server.Email()
+                        return server.saveEmail(new Server.Email()
                         {
                             from = settings.email.from,
                             header = settings.email.header,
@@ -59,7 +59,6 @@ namespace DV_client
                             hidden_copy = hidden_copy_tmp,
                             tags = tags_tmp,        
                         });
-                        break;
 
                     case UserConditions.getUsers:
                         return server.GetUsers();

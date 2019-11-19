@@ -54,21 +54,26 @@ namespace DV_client
 
         private void BT_doEmail_Click(object sender, EventArgs e)
         {
-            UserControlManager.ActionHandler(new UserControlSettings()
+            if((bool)UserControlManager.ActionHandler(new UserControlSettings()
             {
                 condition = UserControlManager.UserConditions.saveEmail,
                 email = new Email()
                 {
                     content = RTB_content.Text,
                     date = DTP_date.Value,
-                    from = TB_from.Text,
+                    from = Convert.ToInt32(TB_from.Text),//ПЕРЕДЕЛАТЬ В ПОЛУЧЕНИЕ ID ПОЛЬЗОВАТЕЛЯ!!!
                     header = TB_header.Text,
                     to = to,
                     copy = copy,
                     hidden_copy = hidden_copy,
                     tags = tag
                 }
-            });
+            }))
+            {
+                MessageBox.Show("Письмо отправлено");
+            }
+            else
+                MessageBox.Show("Ошибка при отправке письма");
         }
 
         //Добавление в массивы

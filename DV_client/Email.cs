@@ -10,7 +10,7 @@ namespace DV_client
     public class Email
     {
         public int id;
-        public string from;
+        public int from;
         public string header;
         public DateTime date;
         public string content;

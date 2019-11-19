@@ -32,7 +32,7 @@ namespace DV_client.Server {
         private System.DateTime dateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string fromField;
+        private int fromField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string headerField;
@@ -99,12 +99,12 @@ namespace DV_client.Server {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string from {
+        public int from {
             get {
                 return this.fromField;
             }
             set {
-                if ((object.ReferenceEquals(this.fromField, value) != true)) {
+                if ((this.fromField.Equals(value) != true)) {
                     this.fromField = value;
                     this.RaisePropertyChanged("from");
                 }
