@@ -18,7 +18,6 @@ namespace DV_client
         public EmailHandlerForm(UserControlSettings settings)
         {
             InitializeComponent();
-
             input_settings = settings;
         }
 
@@ -38,7 +37,10 @@ namespace DV_client
             UserControlManager.ActionHandler(new UserControlSettings()
             {
                 condition = UserControlManager.UserConditions.saveEmail,
-                email = new Email() { }
+                email = new Email()
+                {
+                    
+                }
             });
         }        
     }

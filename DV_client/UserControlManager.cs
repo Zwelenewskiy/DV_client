@@ -20,8 +20,8 @@ namespace DV_client
             {
                 switch (settings.condition)
                 {
-                    case UserConditions.saveEmail:
-                        server.saveEmail(settings.email);
+                    case UserConditions.saveEmail:  
+                        server.saveEmail(new Server.Email());
                         break;
                 }
 
