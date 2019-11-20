@@ -26,7 +26,7 @@ namespace DV_client
                         int[] to_tmp = new int[settings.email.to.Count];
                         int[] copy_tmp = new int[settings.email.copy.Count];
                         int[] hidden_copy_tmp = new int[settings.email.hidden_copy.Count];
-                        int[] tags_tmp = new int[settings.email.tags.Count];
+                        string[] tags_tmp = new string[settings.email.tags.Count];
 
                         for(int i = 0; i < settings.email.to.Count; i++)
                         {

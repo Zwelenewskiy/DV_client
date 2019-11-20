@@ -35,19 +35,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.DTP_date = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.TB_from = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.DGV_to = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.DGV_copy = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.DGV_hidden_copy = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.DGV_tag = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.CB_from = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_to)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_copy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_hidden_copy)).BeginInit();
@@ -115,14 +115,6 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "От:";
             // 
-            // TB_from
-            // 
-            this.TB_from.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_from.Location = new System.Drawing.Point(12, 69);
-            this.TB_from.Name = "TB_from";
-            this.TB_from.Size = new System.Drawing.Size(339, 26);
-            this.TB_from.TabIndex = 6;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -149,6 +141,12 @@
             this.DGV_to.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
             this.DGV_to.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.EditingControlShowing);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 200;
+            // 
             // DGV_copy
             // 
             this.DGV_copy.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -165,6 +163,14 @@
             this.DGV_copy.Tag = "copy";
             this.DGV_copy.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
             this.DGV_copy.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.EditingControlShowing);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Адрес";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn1.Width = 200;
             // 
             // label5
             // 
@@ -192,6 +198,14 @@
             this.DGV_hidden_copy.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
             this.DGV_hidden_copy.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.EditingControlShowing);
             // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Адрес";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn2.Width = 200;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -216,7 +230,13 @@
             this.DGV_tag.TabIndex = 15;
             this.DGV_tag.Tag = "tag";
             this.DGV_tag.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
-            this.DGV_tag.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.EditingControlShowing);
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Адрес";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn3.Width = 200;
             // 
             // label7
             // 
@@ -227,35 +247,13 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Теги:";
             // 
-            // Column1
+            // CB_from
             // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Адрес";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn2.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Адрес";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn1.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Адрес";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn3.Width = 200;
+            this.CB_from.FormattingEnabled = true;
+            this.CB_from.Location = new System.Drawing.Point(12, 77);
+            this.CB_from.Name = "CB_from";
+            this.CB_from.Size = new System.Drawing.Size(255, 21);
+            this.CB_from.TabIndex = 16;
             // 
             // EmailHandlerForm
             // 
@@ -263,6 +261,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(963, 517);
+            this.Controls.Add(this.CB_from);
             this.Controls.Add(this.DGV_tag);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.DGV_hidden_copy);
@@ -272,7 +271,6 @@
             this.Controls.Add(this.DGV_to);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.TB_from);
             this.Controls.Add(this.DTP_date);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TB_header);
@@ -302,7 +300,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker DTP_date;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TB_from;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView DGV_to;
         private System.Windows.Forms.DataGridView DGV_copy;
@@ -314,6 +311,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn Column1;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.ComboBox CB_from;
     }
 }

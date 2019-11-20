@@ -17,7 +17,7 @@ namespace DV_client
         private List<int> to = new List<int>();
         private List<int> copy = new List<int>();
         private List<int> hidden_copy = new List<int>();
-        private List<int> tag = new List<int>();
+        private List<string> tag = new List<string>();
         private int index;
         private string type;
         private Users users;
@@ -38,10 +38,7 @@ namespace DV_client
             ((DataGridViewComboBoxColumn)DGV_to.Columns[0]).DataSource = users.data;
             ((DataGridViewComboBoxColumn)DGV_copy.Columns[0]).DataSource = users.data;
             ((DataGridViewComboBoxColumn)DGV_hidden_copy.Columns[0]).DataSource = users.data;
-
-            /*((DataGridViewComboBoxColumn)DGV_to.Columns[0]).DataSource = new List<string>() { "1", "2", "3" };
-            ((DataGridViewComboBoxColumn)DGV_copy.Columns[0]).DataSource = new List<string>() { "1", "2", "3" };
-            ((DataGridViewComboBoxColumn)DGV_hidden_copy.Columns[0]).DataSource = new List<string>() { "1", "2", "3" };*/
+            CB_from.DataSource = users.data;
 
             switch (input_settings.condition)
             {
@@ -54,6 +51,9 @@ namespace DV_client
 
         private void BT_doEmail_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < DGV_tag.RowCount - 1; i++)
+                tag.Add(DGV_tag.Rows[DGV_tag.CurrentRow.Index].Cells[0].Value.ToString());
+
             if((bool)UserControlManager.ActionHandler(new UserControlSettings()
             {
                 condition = UserControlManager.UserConditions.saveEmail,
@@ -61,7 +61,7 @@ namespace DV_client
                 {
                     content = RTB_content.Text,
                     date = DTP_date.Value,
-                    from = Convert.ToInt32(TB_from.Text),//ПЕРЕДЕЛАТЬ В ПОЛУЧЕНИЕ ID ПОЛЬЗОВАТЕЛЯ!!!
+                    from = users.IDs[CB_from.SelectedIndex],//ПЕРЕДЕЛАТЬ В ПОЛУЧЕНИЕ ID ПОЛЬЗОВАТЕЛЯ!!!
                     header = TB_header.Text,
                     to = to,
                     copy = copy,
@@ -104,13 +104,6 @@ namespace DV_client
                             hidden_copy[index] = users.IDs[selected_index];
                         else
                             hidden_copy.Add(users.IDs[selected_index]);
-                        break;
-
-                    case "tag":
-                        if (index <= tag.Count - 1)
-                            tag[index] = users.IDs[selected_index];
-                        else
-                            tag.Add(users.IDs[selected_index]);
                         break;
                 }
             }            

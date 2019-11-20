@@ -17,6 +17,6 @@ namespace DV_client
         public List<int> to;
         public List<int> copy;
         public List<int> hidden_copy;
-        public List<int> tags;
+        public List<string> tags;
     }
 }

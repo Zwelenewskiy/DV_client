@@ -44,7 +44,7 @@ namespace DV_client.Server {
         private int idField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int[] tagsField;
+        private string[] tagsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int[] toField;
@@ -151,7 +151,7 @@ namespace DV_client.Server {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int[] tags {
+        public string[] tags {
             get {
                 return this.tagsField;
             }
