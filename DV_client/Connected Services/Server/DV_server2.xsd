@@ -21,11 +21,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Email" nillable="true" type="tns:Email" />
-  <xs:complexType name="Users">
-    <xs:sequence>
-      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IDs" nillable="true" type="q5:ArrayOfint" />
-      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="data" nillable="true" type="q6:ArrayOfstring" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Users" nillable="true" type="tns:Users" />
 </xs:schema>

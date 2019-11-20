@@ -20,7 +20,7 @@ namespace DV_client
         private List<string> tag = new List<string>();
         private int index;
         private string type;
-        private Users users;
+        private List<User> users;
 
         public EmailHandlerForm(UserControlSettings settings)
         {
@@ -30,15 +30,21 @@ namespace DV_client
 
         private void EmailHandlerForm_Load(object sender, EventArgs e)
         {
-            users = ((Users)UserControlManager.ActionHandler(new UserControlSettings()
+            users = new List<User>((User[])UserControlManager.ActionHandler(new UserControlSettings()
             {
                 condition = UserControlManager.UserConditions.getUsers
             }));
 
-            ((DataGridViewComboBoxColumn)DGV_to.Columns[0]).DataSource = users.data;
-            ((DataGridViewComboBoxColumn)DGV_copy.Columns[0]).DataSource = users.data;
-            ((DataGridViewComboBoxColumn)DGV_hidden_copy.Columns[0]).DataSource = users.data;
-            CB_from.DataSource = users.data;
+            List<string> user_data = new List<string>();
+            foreach(User user in users)
+            {;
+                user_data.Add(user.lastname + " " + user.name + " " + user.patronymic + " " + user.email);
+            }
+
+            ((DataGridViewComboBoxColumn)DGV_to.Columns[0]).DataSource = user_data;
+            ((DataGridViewComboBoxColumn)DGV_copy.Columns[0]).DataSource = user_data;
+            ((DataGridViewComboBoxColumn)DGV_hidden_copy.Columns[0]).DataSource = user_data;
+            CB_from.DataSource = user_data;
 
             switch (input_settings.condition)
             {
@@ -61,7 +67,7 @@ namespace DV_client
                 {
                     content = RTB_content.Text,
                     date = DTP_date.Value,
-                    from = users.IDs[CB_from.SelectedIndex],//ПЕРЕДЕЛАТЬ В ПОЛУЧЕНИЕ ID ПОЛЬЗОВАТЕЛЯ!!!
+                    from = users[CB_from.SelectedIndex].id,
                     header = TB_header.Text,
                     to = to,
                     copy = copy,
@@ -87,23 +93,23 @@ namespace DV_client
                 {
                     case "to":
                         if (index <= to.Count - 1)
-                            to[index] = users.IDs[selected_index];
+                            to[index] = users[selected_index].id;
                         else
-                            to.Add(users.IDs[selected_index]);
+                            to.Add(users[selected_index].id);
                         break;
 
                     case "copy":
                         if (index <= copy.Count - 1)
-                            copy[index] = users.IDs[selected_index];
+                            copy[index] = users[selected_index].id;
                         else
-                            copy.Add(users.IDs[selected_index]);
+                            copy.Add(users[selected_index].id);
                         break;
 
                     case "hidden_copy":
                         if (index <= hidden_copy.Count - 1)
-                            hidden_copy[index] = users.IDs[selected_index];
+                            hidden_copy[index] = users[selected_index].id;
                         else
-                            hidden_copy.Add(users.IDs[selected_index]);
+                            hidden_copy.Add(users[selected_index].id);
                         break;
                 }
             }            
@@ -129,10 +135,6 @@ namespace DV_client
 
                 case "hidden_copy":
                     type = "hidden_copy";
-                    break;
-
-                case "tag":
-                    type = "tag";
                     break;
             }
 

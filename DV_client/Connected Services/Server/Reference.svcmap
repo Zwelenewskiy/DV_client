@@ -23,10 +23,11 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="DV_server.xsd" MetadataType="Schema" ID="240fbc3b-5741-4110-af6a-56c5ae3ff1ee" SourceId="1" SourceUrl="http://localhost:4880/DV_server.svc?xsd=xsd0" />
-    <MetadataFile FileName="Server.wsdl" MetadataType="Wsdl" ID="b01e8a3a-fcaa-4fa3-bed5-33346b18ad72" SourceId="1" SourceUrl="http://localhost:4880/DV_server.svc?wsdl" />
+    <MetadataFile FileName="DV_server4.xsd" MetadataType="Schema" ID="0c39ea73-6b1b-470e-97d6-b1e03635d479" SourceId="1" SourceUrl="http://localhost:4880/DV_server.svc?xsd=xsd4" />
     <MetadataFile FileName="DV_server2.xsd" MetadataType="Schema" ID="a9a4b048-5a3f-4613-b4a4-d7ccbf451f22" SourceId="1" SourceUrl="http://localhost:4880/DV_server.svc?xsd=xsd2" />
-    <MetadataFile FileName="DV_server1.xsd" MetadataType="Schema" ID="212f209f-884d-45d2-b3fa-6966b1d951eb" SourceId="1" SourceUrl="http://localhost:4880/DV_server.svc?xsd=xsd1" />
+    <MetadataFile FileName="Server.wsdl" MetadataType="Wsdl" ID="b01e8a3a-fcaa-4fa3-bed5-33346b18ad72" SourceId="1" SourceUrl="http://localhost:4880/DV_server.svc?wsdl" />
     <MetadataFile FileName="DV_server3.xsd" MetadataType="Schema" ID="b7d8fb8a-f897-4f12-8b50-62e154a01c13" SourceId="1" SourceUrl="http://localhost:4880/DV_server.svc?xsd=xsd3" />
+    <MetadataFile FileName="DV_server1.xsd" MetadataType="Schema" ID="212f209f-884d-45d2-b3fa-6966b1d951eb" SourceId="1" SourceUrl="http://localhost:4880/DV_server.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

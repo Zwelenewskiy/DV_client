@@ -89,7 +89,7 @@
     <None Include="Connected Services\Server\DV_client.Server.Email.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Server\DV_client.Server.Users.datasource">
+    <None Include="Connected Services\Server\DV_client.Server.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\DV_server.xsd">
@@ -102,6 +102,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Server\DV_server3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Server\DV_server4.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Server\Server.wsdl" />

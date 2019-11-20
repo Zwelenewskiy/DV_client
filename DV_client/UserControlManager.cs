@@ -61,7 +61,7 @@ namespace DV_client
                         });
 
                     case UserConditions.getUsers:
-                        return server.GetUsers();
+                        return server.GetUsers(); 
                 }
 
                 server.Close();
