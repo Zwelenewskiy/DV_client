@@ -28,5 +28,17 @@ namespace DV_client
                 form.ShowDialog();
             }
         }
+
+        private void TSMI_getEmails_Click(object sender, EventArgs e)
+        {
+            List<Email> emails = (List<Email>)UserControlManager.ActionHandler(new UserControlSettings() {
+                condition = UserControlManager.UserConditions.getEmails
+            });
+
+            foreach(Email email in emails)
+            {
+                DGV_emails.Rows.Add();
+            }
+        }
     }
 }

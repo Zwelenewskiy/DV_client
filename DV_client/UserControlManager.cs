@@ -12,7 +12,8 @@ namespace DV_client
         public enum UserConditions
         {
             saveEmail,
-            getUsers
+            getUsers,
+            getEmails
         }
 
         public static object ActionHandler(UserControlSettings settings)
@@ -61,7 +62,10 @@ namespace DV_client
                         });
 
                     case UserConditions.getUsers:
-                        return server.GetUsers(); 
+                        return server.GetUsers();
+
+                    case UserConditions.getEmails:
+                        return server.GetEmails();
                 }
 
                 server.Close();

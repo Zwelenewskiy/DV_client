@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.письмоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_saveEmail = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_getEmails = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_emails)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -58,10 +59,11 @@
             // письмоToolStripMenuItem
             // 
             this.письмоToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TSMI_saveEmail});
+            this.TSMI_saveEmail,
+            this.TSMI_getEmails});
             this.письмоToolStripMenuItem.Name = "письмоToolStripMenuItem";
-            this.письмоToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.письмоToolStripMenuItem.Text = "Письмо";
+            this.письмоToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.письмоToolStripMenuItem.Text = "Письма";
             // 
             // TSMI_saveEmail
             // 
@@ -69,6 +71,13 @@
             this.TSMI_saveEmail.Size = new System.Drawing.Size(180, 22);
             this.TSMI_saveEmail.Text = "Сохранить";
             this.TSMI_saveEmail.Click += new System.EventHandler(this.TSMI_saveEmail_Click);
+            // 
+            // TSMI_getEmails
+            // 
+            this.TSMI_getEmails.Name = "TSMI_getEmails";
+            this.TSMI_getEmails.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_getEmails.Text = "Получить";
+            this.TSMI_getEmails.Click += new System.EventHandler(this.TSMI_getEmails_Click);
             // 
             // Form1
             // 
@@ -96,6 +105,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem письмоToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TSMI_saveEmail;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_getEmails;
     }
 }
 
