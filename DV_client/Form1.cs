@@ -50,19 +50,19 @@ namespace DV_client
 
                 List<User> tmp_users = new List<User>(users.Where(user => email.to.Contains(user.id)));
                 foreach (var user in tmp_users)
-                    to += user.lastname + " " + user.name + " " + user.patronymic + " " + Environment.NewLine;
+                    to += user.lastname + " " + user.name + " " + user.patronymic + " " + user.email + " " + Environment.NewLine;
 
                 List<User> tmp_copy = new List<User>(users.Where(user => email.copy.Contains(user.id)));
                 foreach(var user in tmp_copy)
-                    copy += user.lastname + " " + user.name + " " + user.patronymic + " " + Environment.NewLine;
+                    copy += user.lastname + " " + user.name + " " + user.patronymic + " " + user.email + " " + Environment.NewLine;
 
                 List<User> tmp_hidden_copy = new List<User>(users.Where(user => email.hidden_copy.Contains(user.id)));
                 foreach (var user in tmp_hidden_copy)
-                    hidden_copy += user.lastname + " " + user.name + " " + user.patronymic + " " + Environment.NewLine;
+                    hidden_copy += user.lastname + " " + user.name + " " + user.patronymic + " " + user.email + " " + Environment.NewLine;
 
                 List<User> tmp_from = new List<User>(users.Where(user => user.id == email.from));
                 foreach (var user in tmp_from)
-                    from += user.lastname + " " + user.name + " " + user.patronymic + " " + Environment.NewLine;
+                    from += user.lastname + " " + user.name + " " + user.patronymic + " " + user.email + " " + Environment.NewLine;
 
                 foreach (string name in email.tags)
                 {
