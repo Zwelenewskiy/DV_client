@@ -66,7 +66,7 @@
             this.DGV_emails.Name = "DGV_emails";
             this.DGV_emails.ReadOnly = true;
             this.DGV_emails.RowHeadersVisible = false;
-            this.DGV_emails.Size = new System.Drawing.Size(946, 435);
+            this.DGV_emails.Size = new System.Drawing.Size(1147, 435);
             this.DGV_emails.TabIndex = 0;
             // 
             // menuStrip1
@@ -75,7 +75,7 @@
             this.письмоToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(986, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1250, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -113,6 +113,7 @@
             this.Column2.HeaderText = "Дата";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 130;
             // 
             // Column4
             // 
@@ -125,6 +126,7 @@
             this.Column5.HeaderText = "Содержание";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            this.Column5.Width = 250;
             // 
             // Column3
             // 
@@ -133,6 +135,7 @@
             this.Column3.HeaderText = "Кому";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            this.Column3.Width = 150;
             // 
             // Column6
             // 
@@ -141,6 +144,7 @@
             this.Column6.HeaderText = "Копия";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            this.Column6.Width = 150;
             // 
             // Column7
             // 
@@ -149,6 +153,7 @@
             this.Column7.HeaderText = "Скрытая копия";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
+            this.Column7.Width = 150;
             // 
             // Column8
             // 
@@ -157,12 +162,13 @@
             this.Column8.HeaderText = "Теги";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
+            this.Column8.Width = 80;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(986, 498);
+            this.ClientSize = new System.Drawing.Size(1250, 498);
             this.Controls.Add(this.DGV_emails);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

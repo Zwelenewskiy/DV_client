@@ -51,10 +51,6 @@ namespace DV_client
                 foreach (var user in tmp_users)
                     to += user.lastname + " " + user.name + " " + user.patronymic + " " + Environment.NewLine;
 
-                //Console.WriteLine("ID = " + email.id);
-                //foreach (int id in email.copy)
-                    //Console.WriteLine("     " + id);
-
                 List<User> tmp_copy = new List<User>(users.Where(user => email.copy.Contains(user.id)));
                 foreach(var user in tmp_copy)
                     copy += user.lastname + " " + user.name + " " + user.patronymic + " " + Environment.NewLine;
@@ -62,6 +58,17 @@ namespace DV_client
                 List<User> tmp_hidden_copy = new List<User>(users.Where(user => email.hidden_copy.Contains(user.id)));
                 foreach (var user in tmp_hidden_copy)
                     hidden_copy += user.lastname + " " + user.name + " " + user.patronymic + " " + Environment.NewLine;
+
+                Console.WriteLine("ID = " + email.id);
+                foreach (string name in email.tags)
+                {
+                    Console.WriteLine("     " + name);
+                }
+
+                foreach (string name in email.tags)
+                {
+                    tags += name + Environment.NewLine;
+                }
 
                 DGV_emails.Rows.Add(email.header, email.date, email.from, email.content, to, copy, hidden_copy, tags);
             }
