@@ -43,6 +43,7 @@ namespace DV_client
             foreach (Email email in emails)
             {
                 string to = null;
+                string from = null;
                 string copy = null;
                 string hidden_copy = null;
                 string tags = null;
@@ -59,18 +60,16 @@ namespace DV_client
                 foreach (var user in tmp_hidden_copy)
                     hidden_copy += user.lastname + " " + user.name + " " + user.patronymic + " " + Environment.NewLine;
 
-                Console.WriteLine("ID = " + email.id);
-                foreach (string name in email.tags)
-                {
-                    Console.WriteLine("     " + name);
-                }
+                List<User> tmp_from = new List<User>(users.Where(user => user.id == email.from));
+                foreach (var user in tmp_from)
+                    from += user.lastname + " " + user.name + " " + user.patronymic + " " + Environment.NewLine;
 
                 foreach (string name in email.tags)
                 {
                     tags += name + Environment.NewLine;
                 }
 
-                DGV_emails.Rows.Add(email.header, email.date, email.from, email.content, to, copy, hidden_copy, tags);
+                DGV_emails.Rows.Add(email.header, email.date, from, email.content, to, copy, hidden_copy, tags);
             }
         }
     }

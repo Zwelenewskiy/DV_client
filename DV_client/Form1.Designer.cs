@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DGV_emails = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.письмоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +66,7 @@
             this.DGV_emails.Name = "DGV_emails";
             this.DGV_emails.ReadOnly = true;
             this.DGV_emails.RowHeadersVisible = false;
-            this.DGV_emails.Size = new System.Drawing.Size(1147, 435);
+            this.DGV_emails.Size = new System.Drawing.Size(1180, 435);
             this.DGV_emails.TabIndex = 0;
             // 
             // menuStrip1
@@ -120,6 +120,7 @@
             this.Column4.HeaderText = "Отправитель";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            this.Column4.Width = 150;
             // 
             // Column5
             // 
@@ -130,8 +131,8 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column3.HeaderText = "Кому";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -139,8 +140,8 @@
             // 
             // Column6
             // 
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle10;
             this.Column6.HeaderText = "Копия";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -148,8 +149,8 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle11;
             this.Column7.HeaderText = "Скрытая копия";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -157,8 +158,8 @@
             // 
             // Column8
             // 
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle12;
             this.Column8.HeaderText = "Теги";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
@@ -168,7 +169,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1250, 498);
+            this.ClientSize = new System.Drawing.Size(1250, 485);
             this.Controls.Add(this.DGV_emails);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
