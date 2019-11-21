@@ -24,41 +24,16 @@ namespace DV_client
                 {                 
                     case UserConditions.saveEmail:
 
-                        int[] to_tmp = new int[settings.email.to.Count];
-                        int[] copy_tmp = new int[settings.email.copy.Count];
-                        int[] hidden_copy_tmp = new int[settings.email.hidden_copy.Count];
-                        string[] tags_tmp = new string[settings.email.tags.Count];
-
-                        for(int i = 0; i < settings.email.to.Count; i++)
-                        {
-                            to_tmp[i] = settings.email.to[i];
-                        }
-
-                        for (int i = 0; i < settings.email.copy.Count; i++)
-                        {
-                            copy_tmp[i] = settings.email.copy[i];
-                        }
-
-                        for (int i = 0; i < settings.email.hidden_copy.Count; i++)
-                        {
-                            hidden_copy_tmp[i] = settings.email.hidden_copy[i];
-                        }
-
-                        for (int i = 0; i < settings.email.tags.Count; i++)
-                        {
-                            tags_tmp[i] = settings.email.tags[i];
-                        }
-
                         return server.saveEmail(new Server.Email()
                         {
                             from = settings.email.from,
                             header = settings.email.header,
                             date = settings.email.date,
                             content = settings.email.content,
-                            to = to_tmp,
-                            copy = copy_tmp,
-                            hidden_copy = hidden_copy_tmp,
-                            tags = tags_tmp,        
+                            to = settings.email.to,
+                            copy = settings.email.copy,
+                            hidden_copy = settings.email.hidden_copy,
+                            tags = settings.email.tags,        
                         });
 
                     case UserConditions.getUsers:

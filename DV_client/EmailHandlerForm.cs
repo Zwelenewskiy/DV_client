@@ -14,10 +14,10 @@ namespace DV_client
     public partial class EmailHandlerForm : Form
     {
         private UserControlSettings input_settings;
-        private List<int> to = new List<int>();
-        private List<int> copy = new List<int>();
-        private List<int> hidden_copy = new List<int>();
-        private List<string> tag = new List<string>();
+        private int[] to = new int[1];
+        private int[] copy = new int[1];
+        private int[] hidden_copy = new int[1];
+        private string[] tag = new string[1];
         private int index;
         private string type;
         private List<User> users;
@@ -58,7 +58,10 @@ namespace DV_client
         private void BT_doEmail_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < DGV_tag.RowCount - 1; i++)
-                tag.Add(DGV_tag.Rows[DGV_tag.CurrentRow.Index].Cells[0].Value.ToString());
+            {
+                Array.Resize(ref tag, tag.Length + 1);
+                tag[tag.Length - 1] = DGV_tag.Rows[DGV_tag.CurrentRow.Index].Cells[0].Value.ToString();
+            }
 
             if((bool)UserControlManager.ActionHandler(new UserControlSettings()
             {
@@ -92,24 +95,39 @@ namespace DV_client
                 switch (type)
                 {
                     case "to":
-                        if (index <= to.Count - 1)
+                        if (index <= to.Length - 1)
+                        {
                             to[index] = users[selected_index].id;
+                        }                            
                         else
-                            to.Add(users[selected_index].id);
+                        {
+                            Array.Resize(ref to, to.Length + 1);
+                            to[to.Length - 1] = users[selected_index].id;
+                        }
                         break;
 
                     case "copy":
-                        if (index <= copy.Count - 1)
+                        if (index <= copy.Length - 1)
+                        {
                             copy[index] = users[selected_index].id;
+                        }                            
                         else
-                            copy.Add(users[selected_index].id);
+                        {
+                            Array.Resize(ref copy, to.Length + 1);
+                            copy[copy.Length - 1] = users[selected_index].id;
+                        }
                         break;
 
                     case "hidden_copy":
-                        if (index <= hidden_copy.Count - 1)
+                        if (index <= hidden_copy.Length - 1)
+                        {
                             hidden_copy[index] = users[selected_index].id;
+                        }
                         else
-                            hidden_copy.Add(users[selected_index].id);
+                        {
+                            Array.Resize(ref hidden_copy, to.Length + 1);
+                            hidden_copy[hidden_copy.Length - 1] = users[selected_index].id;
+                        }
                         break;
                 }
             }            
