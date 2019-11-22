@@ -13,7 +13,8 @@ namespace DV_client
         {
             saveEmail,
             getUsers,
-            getEmails
+            getEmails,
+            getTags
         }
 
         public static object ActionHandler(UserControlSettings settings)
@@ -41,6 +42,9 @@ namespace DV_client
 
                     case UserConditions.getEmails:
                         return server.GetEmails();
+
+                    case UserConditions.getTags:
+                        return server.GetTags();
                 }
 
                 server.Close();

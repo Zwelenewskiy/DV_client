@@ -17,11 +17,12 @@ namespace DV_client
         private int[] to = new int[1];
         private int[] copy = new int[1];
         private int[] hidden_copy = new int[1];
-        private string[] tag = new string[1];
+        private KeyValuePair<int, string>[] tag = new KeyValuePair<int, string>[1];
         private int index;
         private string type;
         private List<User> users;
-
+        private List<KeyValuePair<int, string>> tags;
+        
         public EmailHandlerForm(UserControlSettings settings)
         {
             InitializeComponent();
@@ -35,15 +36,30 @@ namespace DV_client
                 condition = UserControlManager.UserConditions.getUsers
             }));
 
+            tags = new List<KeyValuePair<int, string>>((KeyValuePair<int, string>[])UserControlManager.ActionHandler(new UserControlSettings()
+            {
+                condition = UserControlManager.UserConditions.getTags
+            }));
+
             List<string> user_data = new List<string>();
             foreach(User user in users)
-            {;
+            {
                 user_data.Add(user.lastname + " " + user.name + " " + user.patronymic + " " + user.email);
+            }
+
+            List<string> tmp_tags = new List<string>();
+            foreach(var tag in tags)
+            {
+                tmp_tags.Add(tag.Value);
             }
 
             ((DataGridViewComboBoxColumn)DGV_to.Columns[0]).DataSource = user_data;
             ((DataGridViewComboBoxColumn)DGV_copy.Columns[0]).DataSource = user_data;
             ((DataGridViewComboBoxColumn)DGV_hidden_copy.Columns[0]).DataSource = user_data;
+            ((DataGridViewComboBoxColumn)DGV_tag.Columns[0]).DataSource = tmp_tags;
+
+            
+
             CB_from.DataSource = user_data;
 
             switch (input_settings.condition)
@@ -57,12 +73,6 @@ namespace DV_client
 
         private void BT_doEmail_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < DGV_tag.RowCount - 1; i++)
-            {
-                Array.Resize(ref tag, tag.Length + 1);
-                tag[tag.Length - 1] = DGV_tag.Rows[DGV_tag.CurrentRow.Index].Cells[0].Value.ToString();
-            }
-
             if((bool)UserControlManager.ActionHandler(new UserControlSettings()
             {
                 condition = UserControlManager.UserConditions.saveEmail,
@@ -113,7 +123,7 @@ namespace DV_client
                         }                            
                         else
                         {
-                            Array.Resize(ref copy, to.Length + 1);
+                            Array.Resize(ref copy, copy.Length + 1);
                             copy[copy.Length - 1] = users[selected_index].id;
                         }
                         break;
@@ -125,9 +135,23 @@ namespace DV_client
                         }
                         else
                         {
-                            Array.Resize(ref hidden_copy, to.Length + 1);
+                            Array.Resize(ref hidden_copy, hidden_copy.Length + 1);
                             hidden_copy[hidden_copy.Length - 1] = users[selected_index].id;
                         }
+                        break;
+
+                    case "tag":
+                        if (index <= tag.Length - 1)
+                        {
+                            tag[index] = new KeyValuePair<int, string>(tags[selected_index].Key, tags[selected_index].Value);
+                        }
+                        else
+                        {
+                            Array.Resize(ref tag, tag.Length + 1);
+                            tag[tag.Length - 1] = new KeyValuePair<int, string>(tags[selected_index].Key, tags[selected_index].Value);
+                        }
+
+                        Console.WriteLine(tag.Length);
                         break;
                 }
             }            
@@ -153,6 +177,10 @@ namespace DV_client
 
                 case "hidden_copy":
                     type = "hidden_copy";
+                    break;
+
+                case "tag":
+                    type = "tag";
                     break;
             }
 

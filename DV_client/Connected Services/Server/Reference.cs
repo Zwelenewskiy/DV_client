@@ -44,7 +44,7 @@ namespace DV_client.Server {
         private int idField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] tagsField;
+        private System.Collections.Generic.KeyValuePair<int, string>[] tagsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int[] toField;
@@ -151,7 +151,7 @@ namespace DV_client.Server {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] tags {
+        public System.Collections.Generic.KeyValuePair<int, string>[] tags {
             get {
                 return this.tagsField;
             }
@@ -316,6 +316,12 @@ namespace DV_client.Server {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/GetUsers", ReplyAction="http://tempuri.org/IDV_server/GetUsersResponse")]
         System.Threading.Tasks.Task<DV_client.Server.User[]> GetUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/GetTags", ReplyAction="http://tempuri.org/IDV_server/GetTagsResponse")]
+        System.Collections.Generic.KeyValuePair<int, string>[] GetTags();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/GetTags", ReplyAction="http://tempuri.org/IDV_server/GetTagsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.KeyValuePair<int, string>[]> GetTagsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -367,6 +373,14 @@ namespace DV_client.Server {
         
         public System.Threading.Tasks.Task<DV_client.Server.User[]> GetUsersAsync() {
             return base.Channel.GetUsersAsync();
+        }
+        
+        public System.Collections.Generic.KeyValuePair<int, string>[] GetTags() {
+            return base.Channel.GetTags();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.KeyValuePair<int, string>[]> GetTagsAsync() {
+            return base.Channel.GetTagsAsync();
         }
     }
 }

@@ -6,6 +6,7 @@
       <xsd:import schemaLocation="http://localhost:4880/DV_server.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:4880/DV_server.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Models" />
       <xsd:import schemaLocation="http://localhost:4880/DV_server.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:4880/DV_server.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IDV_server_GetEmails_InputMessage">
@@ -26,6 +27,12 @@
   <wsdl:message name="IDV_server_GetUsers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUsersResponse" />
   </wsdl:message>
+  <wsdl:message name="IDV_server_GetTags_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTags" />
+  </wsdl:message>
+  <wsdl:message name="IDV_server_GetTags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDV_server">
     <wsdl:operation name="GetEmails">
       <wsdl:input wsaw:Action="http://tempuri.org/IDV_server/GetEmails" message="tns:IDV_server_GetEmails_InputMessage" />
@@ -38,6 +45,10 @@
     <wsdl:operation name="GetUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IDV_server/GetUsers" message="tns:IDV_server_GetUsers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDV_server/GetUsersResponse" message="tns:IDV_server_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTags">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDV_server/GetTags" message="tns:IDV_server_GetTags_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDV_server/GetTagsResponse" message="tns:IDV_server_GetTags_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDV_server" type="tns:IDV_server">
@@ -62,6 +73,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetUsers">
       <soap:operation soapAction="http://tempuri.org/IDV_server/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTags">
+      <soap:operation soapAction="http://tempuri.org/IDV_server/GetTags" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

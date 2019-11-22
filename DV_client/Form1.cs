@@ -64,9 +64,9 @@ namespace DV_client
                 foreach (var user in tmp_from)
                     from += user.lastname + " " + user.name + " " + user.patronymic + " " + user.email + " " + Environment.NewLine;
 
-                foreach (string name in email.tags)
+                foreach (var name in email.tags)
                 {
-                    tags += name + Environment.NewLine;
+                    tags += name.Value + Environment.NewLine;
                 }
 
                 DGV_emails.Rows.Add(email.header, email.date, from, email.content, to, copy, hidden_copy, tags);
