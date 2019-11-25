@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using DV_client.Server;
 
 namespace DV_client
@@ -16,6 +18,24 @@ namespace DV_client
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private static string ToXMLString(Email[] list)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(Email[]));
+            MemoryStream ms = new MemoryStream();
+            xs.Serialize(ms, list);
+
+            return Encoding.UTF8.GetString(ms.ToArray());
+        }
+
+        private static string ToXMLString(object obj, Type objType)
+        {
+            XmlSerializer xs = new XmlSerializer(objType);
+            MemoryStream ms = new MemoryStream();
+            xs.Serialize(ms, obj);
+
+            return Encoding.UTF8.GetString(ms.ToArray());
         }
 
         private void TSMI_saveEmail_Click(object sender, EventArgs e)
@@ -34,6 +54,12 @@ namespace DV_client
             Email[] emails = (Email[])UserControlManager.ActionHandler(new UserControlSettings() {
                 condition = UserControlManager.UserConditions.getEmails
             });
+
+            List<int[]> t = new List<int[]>();
+            t.Add(new int[2] { 1, 1 });
+            t.Add(new int[2] { 2, 2 });
+
+            Console.WriteLine(ToXMLString(t, typeof(List<int[]>)));//KeyValuePair<int, string>[]
 
             List<User> users = new List<User>((User[])UserControlManager.ActionHandler(new UserControlSettings()
             {
@@ -71,6 +97,15 @@ namespace DV_client
 
                 DGV_emails.Rows.Add(email.header, email.date, from, email.content, to, copy, hidden_copy, tags);
             }
+        }
+
+        private void TSMI_change_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            DGV_emails.ContextMenuStrip = contextMenuStrip1;
         }
     }
 }

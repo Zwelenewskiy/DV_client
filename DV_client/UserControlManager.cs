@@ -14,7 +14,8 @@ namespace DV_client
             saveEmail,
             getUsers,
             getEmails,
-            getTags
+            getTags,
+            changeEmail
         }
 
         public static object ActionHandler(UserControlSettings settings)
@@ -45,6 +46,9 @@ namespace DV_client
 
                     case UserConditions.getTags:
                         return server.GetTags();
+
+                    case UserConditions.changeEmail:
+                        return server.ChangeEmail(settings.email);
                 }
 
                 server.Close();

@@ -28,15 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DGV_emails = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.письмоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.TSMI_saveEmail = new System.Windows.Forms.ToolStripMenuItem();
-            this.TSMI_getEmails = new System.Windows.Forms.ToolStripMenuItem();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,8 +42,15 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.письмоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_saveEmail = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_getEmails = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.TSMI_change = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_emails)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DGV_emails
@@ -68,39 +72,6 @@
             this.DGV_emails.RowHeadersVisible = false;
             this.DGV_emails.Size = new System.Drawing.Size(1180, 435);
             this.DGV_emails.TabIndex = 0;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.письмоToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1250, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // письмоToolStripMenuItem
-            // 
-            this.письмоToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TSMI_saveEmail,
-            this.TSMI_getEmails});
-            this.письмоToolStripMenuItem.Name = "письмоToolStripMenuItem";
-            this.письмоToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.письмоToolStripMenuItem.Text = "Письма";
-            // 
-            // TSMI_saveEmail
-            // 
-            this.TSMI_saveEmail.Name = "TSMI_saveEmail";
-            this.TSMI_saveEmail.Size = new System.Drawing.Size(132, 22);
-            this.TSMI_saveEmail.Text = "Сохранить";
-            this.TSMI_saveEmail.Click += new System.EventHandler(this.TSMI_saveEmail_Click);
-            // 
-            // TSMI_getEmails
-            // 
-            this.TSMI_getEmails.Name = "TSMI_getEmails";
-            this.TSMI_getEmails.Size = new System.Drawing.Size(132, 22);
-            this.TSMI_getEmails.Text = "Получить";
-            this.TSMI_getEmails.Click += new System.EventHandler(this.TSMI_getEmails_Click);
             // 
             // Column1
             // 
@@ -165,6 +136,53 @@
             this.Column8.ReadOnly = true;
             this.Column8.Width = 80;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.письмоToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1250, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // письмоToolStripMenuItem
+            // 
+            this.письмоToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_saveEmail,
+            this.TSMI_getEmails});
+            this.письмоToolStripMenuItem.Name = "письмоToolStripMenuItem";
+            this.письмоToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.письмоToolStripMenuItem.Text = "Письма";
+            // 
+            // TSMI_saveEmail
+            // 
+            this.TSMI_saveEmail.Name = "TSMI_saveEmail";
+            this.TSMI_saveEmail.Size = new System.Drawing.Size(132, 22);
+            this.TSMI_saveEmail.Text = "Сохранить";
+            this.TSMI_saveEmail.Click += new System.EventHandler(this.TSMI_saveEmail_Click);
+            // 
+            // TSMI_getEmails
+            // 
+            this.TSMI_getEmails.Name = "TSMI_getEmails";
+            this.TSMI_getEmails.Size = new System.Drawing.Size(132, 22);
+            this.TSMI_getEmails.Text = "Получить";
+            this.TSMI_getEmails.Click += new System.EventHandler(this.TSMI_getEmails_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_change});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(129, 26);
+            // 
+            // TSMI_change
+            // 
+            this.TSMI_change.Name = "TSMI_change";
+            this.TSMI_change.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_change.Text = "Изменить";
+            this.TSMI_change.Click += new System.EventHandler(this.TSMI_change_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,9 +195,11 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Почтовый клиент";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_emails)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,6 +220,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_change;
     }
 }
 

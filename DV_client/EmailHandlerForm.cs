@@ -56,9 +56,7 @@ namespace DV_client
             ((DataGridViewComboBoxColumn)DGV_to.Columns[0]).DataSource = user_data;
             ((DataGridViewComboBoxColumn)DGV_copy.Columns[0]).DataSource = user_data;
             ((DataGridViewComboBoxColumn)DGV_hidden_copy.Columns[0]).DataSource = user_data;
-            ((DataGridViewComboBoxColumn)DGV_tag.Columns[0]).DataSource = tmp_tags;
-
-            
+            ((DataGridViewComboBoxColumn)DGV_tag.Columns[0]).DataSource = tmp_tags;           
 
             CB_from.DataSource = user_data;
 

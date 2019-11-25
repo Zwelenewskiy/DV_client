@@ -322,6 +322,12 @@ namespace DV_client.Server {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/GetTags", ReplyAction="http://tempuri.org/IDV_server/GetTagsResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.KeyValuePair<int, string>[]> GetTagsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/ChangeEmail", ReplyAction="http://tempuri.org/IDV_server/ChangeEmailResponse")]
+        bool ChangeEmail(DV_client.Server.Email email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/ChangeEmail", ReplyAction="http://tempuri.org/IDV_server/ChangeEmailResponse")]
+        System.Threading.Tasks.Task<bool> ChangeEmailAsync(DV_client.Server.Email email);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -381,6 +387,14 @@ namespace DV_client.Server {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.KeyValuePair<int, string>[]> GetTagsAsync() {
             return base.Channel.GetTagsAsync();
+        }
+        
+        public bool ChangeEmail(DV_client.Server.Email email) {
+            return base.Channel.ChangeEmail(email);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ChangeEmailAsync(DV_client.Server.Email email) {
+            return base.Channel.ChangeEmailAsync(email);
         }
     }
 }
