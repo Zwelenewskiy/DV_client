@@ -55,11 +55,33 @@ namespace DV_client
                 condition = UserControlManager.UserConditions.getEmails
             });
 
-            List<int[]> t = new List<int[]>();
-            t.Add(new int[2] { 1, 1 });
-            t.Add(new int[2] { 2, 2 });
+            UserControlManager.ActionHandler(new UserControlSettings()
+            {
+                condition = UserControlManager.UserConditions.changeEmail,
+                email = new Email()
+                {
+                    id = 40,
+                    content = "desfvswgaedvfsdfvgfswgwsgswvfsdfg",
+                    from = 3,
+                    header = "THEMA",
+                    to = new int[2] { 0, 4 },
+                    date = DateTime.Now
+                }
+            });
 
-            Console.WriteLine(ToXMLString(t, typeof(List<int[]>)));//KeyValuePair<int, string>[]
+            
+            /*List<int> t = new List<int>();
+            t.Add(1);
+            t.Add(2);
+
+            Console.WriteLine(ToXMLString(t, typeof(List<int>)).IndexOf("xmlns:xsi = \"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema"));
+
+            Console.WriteLine("xmlns:xsi = \"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema");
+            Console.WriteLine(ToXMLString(t, typeof(List<int>)));
+
+            //Console.WriteLine(ToXMLString(t, typeof(List<int>)).Replace(@"""xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema""", ""));
+
+            return;*/
 
             List<User> users = new List<User>((User[])UserControlManager.ActionHandler(new UserControlSettings()
             {
