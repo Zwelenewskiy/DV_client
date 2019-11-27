@@ -139,6 +139,7 @@
             this.DGV_to.TabIndex = 9;
             this.DGV_to.Tag = "to";
             this.DGV_to.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
+            this.DGV_to.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.DGV_to_ColumnAdded);
             this.DGV_to.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.EditingControlShowing);
             // 
             // Column1
@@ -230,6 +231,7 @@
             this.DGV_tag.TabIndex = 15;
             this.DGV_tag.Tag = "tag";
             this.DGV_tag.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
+            this.DGV_tag.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.DGV_tag_ColumnAdded);
             this.DGV_tag.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.EditingControlShowing);
             // 
             // dataGridViewTextBoxColumn3

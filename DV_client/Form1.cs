@@ -20,23 +20,7 @@ namespace DV_client
             InitializeComponent();
         }
 
-        private static string ToXMLString(Email[] list)
-        {
-            XmlSerializer xs = new XmlSerializer(typeof(Email[]));
-            MemoryStream ms = new MemoryStream();
-            xs.Serialize(ms, list);
-
-            return Encoding.UTF8.GetString(ms.ToArray());
-        }
-
-        private static string ToXMLString(object obj, Type objType)
-        {
-            XmlSerializer xs = new XmlSerializer(objType);
-            MemoryStream ms = new MemoryStream();
-            xs.Serialize(ms, obj);
-
-            return Encoding.UTF8.GetString(ms.ToArray());
-        }
+        Email[] emails;
 
         private void TSMI_saveEmail_Click(object sender, EventArgs e)
         {
@@ -51,7 +35,7 @@ namespace DV_client
 
         private void TSMI_getEmails_Click(object sender, EventArgs e)
         {
-            Email[] emails = (Email[])UserControlManager.ActionHandler(new UserControlSettings() {
+            emails = (Email[])UserControlManager.ActionHandler(new UserControlSettings() {
                 condition = UserControlManager.UserConditions.getEmails
             });
 
@@ -69,21 +53,7 @@ namespace DV_client
                 }
             });
 
-            
-            /*List<int> t = new List<int>();
-            t.Add(1);
-            t.Add(2);
-
-            Console.WriteLine(ToXMLString(t, typeof(List<int>)).IndexOf("xmlns:xsi = \"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema"));
-
-            Console.WriteLine("xmlns:xsi = \"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema");
-            Console.WriteLine(ToXMLString(t, typeof(List<int>)));
-
-            //Console.WriteLine(ToXMLString(t, typeof(List<int>)).Replace(@"""xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema""", ""));
-
-            return;*/
-
-            List<User> users = new List<User>((User[])UserControlManager.ActionHandler(new UserControlSettings()
+            List <User> users = new List<User>((User[])UserControlManager.ActionHandler(new UserControlSettings()
             {
                 condition = UserControlManager.UserConditions.getUsers
             }));
@@ -123,6 +93,14 @@ namespace DV_client
 
         private void TSMI_change_Click(object sender, EventArgs e)
         {
+            using (var form = new EmailHandlerForm(new UserControlSettings()
+            {
+                condition = UserControlManager.UserConditions.changeEmail,
+                email = emails[DGV_emails.CurrentRow.Index]
+            }))
+            {
+                form.ShowDialog();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)

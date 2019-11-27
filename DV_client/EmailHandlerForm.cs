@@ -48,7 +48,7 @@ namespace DV_client
             }
 
             List<string> tmp_tags = new List<string>();
-            foreach(var tag in tags)
+            foreach (var tag in tags)
             {
                 tmp_tags.Add(tag.Value);
             }
@@ -56,7 +56,7 @@ namespace DV_client
             ((DataGridViewComboBoxColumn)DGV_to.Columns[0]).DataSource = user_data;
             ((DataGridViewComboBoxColumn)DGV_copy.Columns[0]).DataSource = user_data;
             ((DataGridViewComboBoxColumn)DGV_hidden_copy.Columns[0]).DataSource = user_data;
-            ((DataGridViewComboBoxColumn)DGV_tag.Columns[0]).DataSource = tmp_tags;           
+            ((DataGridViewComboBoxColumn)DGV_tag.Columns[0]).DataSource = tmp_tags;
 
             CB_from.DataSource = user_data;
 
@@ -64,33 +64,72 @@ namespace DV_client
             {
                 case UserControlManager.UserConditions.saveEmail:
                     Text = "Сохранение письма";
-                    BT_doEmail.Text = "Сохранить";
+                    break;
+
+                case UserControlManager.UserConditions.changeEmail:
+                    Text = "Изменение письма";
+
+                    TB_header.Text = input_settings.email.header;
+                    RTB_content.Text = input_settings.email.content;
+                    DTP_date.Value = input_settings.email.date;
+
+                    if(input_settings.email.to.Length - 1 > 0)
+                        DGV_to.Rows.Add(input_settings.email.to.Length - 1);
+
+                    if (input_settings.email.copy.Length - 1 > 0)
+                        DGV_copy.Rows.Add(input_settings.email.copy.Length - 1);
+
+                    if (input_settings.email.hidden_copy.Length - 1 > 0)
+                        DGV_hidden_copy.Rows.Add(input_settings.email.hidden_copy.Length - 1);
+
+                    if (input_settings.email.tags.Length - 1 > 0)
+                        DGV_tag.Rows.Add(input_settings.email.tags.Length - 1);
+
                     break;
             }
         }
 
         private void BT_doEmail_Click(object sender, EventArgs e)
         {
-            if((bool)UserControlManager.ActionHandler(new UserControlSettings()
+            Email email_for_send = new Email()
             {
-                condition = UserControlManager.UserConditions.saveEmail,
-                email = new Email()
+                id = input_settings.email.id,
+                content = RTB_content.Text,
+                date = DTP_date.Value,
+                from = users[CB_from.SelectedIndex].id,
+                header = TB_header.Text,
+                to = to,
+                copy = copy,
+                hidden_copy = hidden_copy,
+                tags = tag
+            };
+
+            if(input_settings.condition == UserControlManager.UserConditions.saveEmail)
+            {
+                if ((bool)UserControlManager.ActionHandler(new UserControlSettings()
                 {
-                    content = RTB_content.Text,
-                    date = DTP_date.Value,
-                    from = users[CB_from.SelectedIndex].id,
-                    header = TB_header.Text,
-                    to = to,
-                    copy = copy,
-                    hidden_copy = hidden_copy,
-                    tags = tag
+                    condition = UserControlManager.UserConditions.saveEmail,
+                    email = email_for_send
+                }))
+                {
+                    MessageBox.Show("Письмо отправлено");
                 }
-            }))
-            {
-                MessageBox.Show("Письмо отправлено");
+                else
+                    MessageBox.Show("Ошибка при отправке письма");
             }
             else
-                MessageBox.Show("Ошибка при отправке письма");
+            {
+                if ((bool)UserControlManager.ActionHandler(new UserControlSettings()
+                {
+                    condition = UserControlManager.UserConditions.changeEmail,
+                    email = email_for_send
+                }))
+                {
+                    MessageBox.Show("Письмо изменено");
+                }
+                else
+                    MessageBox.Show("Ошибка при изменении письма");
+            }            
         }
 
         //Добавление в массивы
@@ -184,6 +223,16 @@ namespace DV_client
 
             (e.Control as ComboBox).SelectedIndexChanged -= new EventHandler(ChangeCell);
             (e.Control as ComboBox).SelectedIndexChanged += new EventHandler(ChangeCell);
+        }
+
+        private void DGV_to_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
+        {
+            
+        }
+
+        private void DGV_tag_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
+        {
+            (sender as ComboBox).SelectedIndex = 2;
         }
     }
 }

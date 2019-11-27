@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DGV_emails = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,8 +102,8 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle13;
             this.Column3.HeaderText = "Кому";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -111,8 +111,8 @@
             // 
             // Column6
             // 
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle14;
             this.Column6.HeaderText = "Копия";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -120,8 +120,8 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle15;
             this.Column7.HeaderText = "Скрытая копия";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -129,8 +129,8 @@
             // 
             // Column8
             // 
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle16;
             this.Column8.HeaderText = "Теги";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
@@ -158,14 +158,14 @@
             // TSMI_saveEmail
             // 
             this.TSMI_saveEmail.Name = "TSMI_saveEmail";
-            this.TSMI_saveEmail.Size = new System.Drawing.Size(132, 22);
+            this.TSMI_saveEmail.Size = new System.Drawing.Size(180, 22);
             this.TSMI_saveEmail.Text = "Сохранить";
             this.TSMI_saveEmail.Click += new System.EventHandler(this.TSMI_saveEmail_Click);
             // 
             // TSMI_getEmails
             // 
             this.TSMI_getEmails.Name = "TSMI_getEmails";
-            this.TSMI_getEmails.Size = new System.Drawing.Size(132, 22);
+            this.TSMI_getEmails.Size = new System.Drawing.Size(180, 22);
             this.TSMI_getEmails.Text = "Получить";
             this.TSMI_getEmails.Click += new System.EventHandler(this.TSMI_getEmails_Click);
             // 
@@ -179,7 +179,7 @@
             // TSMI_change
             // 
             this.TSMI_change.Name = "TSMI_change";
-            this.TSMI_change.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_change.Size = new System.Drawing.Size(128, 22);
             this.TSMI_change.Text = "Изменить";
             this.TSMI_change.Click += new System.EventHandler(this.TSMI_change_Click);
             // 
