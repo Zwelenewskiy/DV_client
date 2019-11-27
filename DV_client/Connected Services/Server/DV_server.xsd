@@ -66,4 +66,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SearchByDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="from" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="to" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Models" minOccurs="0" name="SearchByDateResult" nillable="true" type="q6:ArrayOfEmail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

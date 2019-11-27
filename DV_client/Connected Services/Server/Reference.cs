@@ -328,6 +328,12 @@ namespace DV_client.Server {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/ChangeEmail", ReplyAction="http://tempuri.org/IDV_server/ChangeEmailResponse")]
         System.Threading.Tasks.Task<bool> ChangeEmailAsync(DV_client.Server.Email email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/SearchByDate", ReplyAction="http://tempuri.org/IDV_server/SearchByDateResponse")]
+        DV_client.Server.Email[] SearchByDate(System.DateTime from, System.DateTime to);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/SearchByDate", ReplyAction="http://tempuri.org/IDV_server/SearchByDateResponse")]
+        System.Threading.Tasks.Task<DV_client.Server.Email[]> SearchByDateAsync(System.DateTime from, System.DateTime to);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -395,6 +401,14 @@ namespace DV_client.Server {
         
         public System.Threading.Tasks.Task<bool> ChangeEmailAsync(DV_client.Server.Email email) {
             return base.Channel.ChangeEmailAsync(email);
+        }
+        
+        public DV_client.Server.Email[] SearchByDate(System.DateTime from, System.DateTime to) {
+            return base.Channel.SearchByDate(from, to);
+        }
+        
+        public System.Threading.Tasks.Task<DV_client.Server.Email[]> SearchByDateAsync(System.DateTime from, System.DateTime to) {
+            return base.Channel.SearchByDateAsync(from, to);
         }
     }
 }

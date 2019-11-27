@@ -15,7 +15,8 @@ namespace DV_client
             getUsers,
             getEmails,
             getTags,
-            changeEmail
+            changeEmail,
+            searchByDate
         }
 
         public static object ActionHandler(UserControlSettings settings)
@@ -26,7 +27,7 @@ namespace DV_client
                 {                 
                     case UserConditions.saveEmail:
 
-                        return server.saveEmail(new Server.Email()
+                        /*return server.saveEmail(new Email()
                         {
                             from = settings.email.from,
                             header = settings.email.header,
@@ -36,7 +37,9 @@ namespace DV_client
                             copy = settings.email.copy,
                             hidden_copy = settings.email.hidden_copy,
                             tags = settings.email.tags,        
-                        });
+                        });*/
+
+                        return server.saveEmail(settings.email);
 
                     case UserConditions.getUsers:
                         return server.GetUsers();
@@ -49,6 +52,9 @@ namespace DV_client
 
                     case UserConditions.changeEmail:
                         return server.ChangeEmail(settings.email);
+
+                    case UserConditions.searchByDate:
+                        return server.SearchByDate(settings.dateFrom, settings.dateTo);
                 }
 
                 server.Close();

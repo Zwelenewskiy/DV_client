@@ -39,6 +39,12 @@
   <wsdl:message name="IDV_server_ChangeEmail_OutputMessage">
     <wsdl:part name="parameters" element="tns:ChangeEmailResponse" />
   </wsdl:message>
+  <wsdl:message name="IDV_server_SearchByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchByDate" />
+  </wsdl:message>
+  <wsdl:message name="IDV_server_SearchByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchByDateResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDV_server">
     <wsdl:operation name="GetEmails">
       <wsdl:input wsaw:Action="http://tempuri.org/IDV_server/GetEmails" message="tns:IDV_server_GetEmails_InputMessage" />
@@ -59,6 +65,10 @@
     <wsdl:operation name="ChangeEmail">
       <wsdl:input wsaw:Action="http://tempuri.org/IDV_server/ChangeEmail" message="tns:IDV_server_ChangeEmail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDV_server/ChangeEmailResponse" message="tns:IDV_server_ChangeEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDV_server/SearchByDate" message="tns:IDV_server_SearchByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDV_server/SearchByDateResponse" message="tns:IDV_server_SearchByDate_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDV_server" type="tns:IDV_server">
@@ -101,6 +111,15 @@
     </wsdl:operation>
     <wsdl:operation name="ChangeEmail">
       <soap:operation soapAction="http://tempuri.org/IDV_server/ChangeEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchByDate">
+      <soap:operation soapAction="http://tempuri.org/IDV_server/SearchByDate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

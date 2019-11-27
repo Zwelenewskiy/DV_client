@@ -11,5 +11,7 @@ namespace DV_client
     {
         public UserControlManager.UserConditions condition;
         public Email email;
+        public DateTime dateFrom;
+        public DateTime dateTo;
     }
 }

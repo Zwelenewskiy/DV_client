@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DGV_emails = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +48,11 @@
             this.TSMI_getEmails = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TSMI_change = new System.Windows.Forms.ToolStripMenuItem();
+            this.DTP_from = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.DTP_to = new System.Windows.Forms.DateTimePicker();
+            this.BT_search = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_emails)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -66,7 +71,7 @@
             this.Column6,
             this.Column7,
             this.Column8});
-            this.DGV_emails.Location = new System.Drawing.Point(12, 27);
+            this.DGV_emails.Location = new System.Drawing.Point(9, 108);
             this.DGV_emails.Name = "DGV_emails";
             this.DGV_emails.ReadOnly = true;
             this.DGV_emails.RowHeadersVisible = false;
@@ -102,8 +107,8 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column3.HeaderText = "Кому";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -111,8 +116,8 @@
             // 
             // Column6
             // 
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column6.HeaderText = "Копия";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -120,8 +125,8 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column7.HeaderText = "Скрытая копия";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -129,8 +134,8 @@
             // 
             // Column8
             // 
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column8.HeaderText = "Теги";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
@@ -183,11 +188,58 @@
             this.TSMI_change.Text = "Изменить";
             this.TSMI_change.Click += new System.EventHandler(this.TSMI_change_Click);
             // 
+            // DTP_from
+            // 
+            this.DTP_from.Location = new System.Drawing.Point(35, 27);
+            this.DTP_from.Name = "DTP_from";
+            this.DTP_from.Size = new System.Drawing.Size(128, 20);
+            this.DTP_from.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(23, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "От:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(25, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "До:";
+            // 
+            // DTP_to
+            // 
+            this.DTP_to.Location = new System.Drawing.Point(35, 53);
+            this.DTP_to.Name = "DTP_to";
+            this.DTP_to.Size = new System.Drawing.Size(128, 20);
+            this.DTP_to.TabIndex = 4;
+            // 
+            // BT_search
+            // 
+            this.BT_search.Location = new System.Drawing.Point(49, 79);
+            this.BT_search.Name = "BT_search";
+            this.BT_search.Size = new System.Drawing.Size(75, 23);
+            this.BT_search.TabIndex = 6;
+            this.BT_search.Text = "Поиск";
+            this.BT_search.UseVisualStyleBackColor = true;
+            this.BT_search.Click += new System.EventHandler(this.BT_search_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1250, 485);
+            this.ClientSize = new System.Drawing.Size(1250, 554);
+            this.Controls.Add(this.BT_search);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.DTP_to);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.DTP_from);
             this.Controls.Add(this.DGV_emails);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -222,6 +274,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem TSMI_change;
+        private System.Windows.Forms.DateTimePicker DTP_from;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker DTP_to;
+        private System.Windows.Forms.Button BT_search;
     }
 }
 
