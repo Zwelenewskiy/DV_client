@@ -78,20 +78,6 @@ namespace DV_client
         {
             emails = (Email[])UserControlManager.ActionHandler(new UserControlSettings() {
                 condition = UserControlManager.UserConditions.getEmails
-            });
-
-            UserControlManager.ActionHandler(new UserControlSettings()
-            {
-                condition = UserControlManager.UserConditions.changeEmail,
-                email = new Email()
-                {
-                    id = 40,
-                    content = "desfvswgaedvfsdfvgfswgwsgswvfsdfg",
-                    from = 3,
-                    header = "THEMA",
-                    to = new int[2] { 0, 4 },
-                    date = DateTime.Now
-                }
             });           
 
             FillTable(emails);
@@ -123,5 +109,5 @@ namespace DV_client
                 dateTo = DTP_to.Value,
             }));
         }
-    }
+    }    
 }
