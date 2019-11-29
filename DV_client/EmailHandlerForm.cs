@@ -225,11 +225,6 @@ namespace DV_client
             (e.Control as ComboBox).SelectedIndexChanged += new EventHandler(ChangeCell);
         }
 
-        private void DGV_to_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
-        {
-            
-        }
-
         private void DGV_tag_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
         {
             (sender as ComboBox).SelectedIndex = 2;

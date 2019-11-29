@@ -139,7 +139,6 @@
             this.DGV_to.TabIndex = 9;
             this.DGV_to.Tag = "to";
             this.DGV_to.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
-            this.DGV_to.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.DGV_to_ColumnAdded);
             this.DGV_to.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.EditingControlShowing);
             // 
             // Column1

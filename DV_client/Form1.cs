@@ -17,6 +17,8 @@ namespace DV_client
     {
         private void FillTable(Email[] emails)
         {
+            Console.WriteLine(emails.Length);
+
             List<User> users = new List<User>((User[])UserControlManager.ActionHandler(new UserControlSettings()
             {
                 condition = UserControlManager.UserConditions.getUsers

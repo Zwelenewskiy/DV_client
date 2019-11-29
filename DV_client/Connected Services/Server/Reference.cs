@@ -334,6 +334,12 @@ namespace DV_client.Server {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/SearchByDate", ReplyAction="http://tempuri.org/IDV_server/SearchByDateResponse")]
         System.Threading.Tasks.Task<DV_client.Server.Email[]> SearchByDateAsync(System.DateTime from, System.DateTime to);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/SearchByTags", ReplyAction="http://tempuri.org/IDV_server/SearchByTagsResponse")]
+        DV_client.Server.Email[] SearchByTags(System.Collections.Generic.KeyValuePair<int, string>[] tags);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDV_server/SearchByTags", ReplyAction="http://tempuri.org/IDV_server/SearchByTagsResponse")]
+        System.Threading.Tasks.Task<DV_client.Server.Email[]> SearchByTagsAsync(System.Collections.Generic.KeyValuePair<int, string>[] tags);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -409,6 +415,14 @@ namespace DV_client.Server {
         
         public System.Threading.Tasks.Task<DV_client.Server.Email[]> SearchByDateAsync(System.DateTime from, System.DateTime to) {
             return base.Channel.SearchByDateAsync(from, to);
+        }
+        
+        public DV_client.Server.Email[] SearchByTags(System.Collections.Generic.KeyValuePair<int, string>[] tags) {
+            return base.Channel.SearchByTags(tags);
+        }
+        
+        public System.Threading.Tasks.Task<DV_client.Server.Email[]> SearchByTagsAsync(System.Collections.Generic.KeyValuePair<int, string>[] tags) {
+            return base.Channel.SearchByTagsAsync(tags);
         }
     }
 }

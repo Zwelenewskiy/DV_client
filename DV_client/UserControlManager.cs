@@ -26,19 +26,6 @@ namespace DV_client
                 switch (settings.condition)
                 {                 
                     case UserConditions.saveEmail:
-
-                        /*return server.saveEmail(new Email()
-                        {
-                            from = settings.email.from,
-                            header = settings.email.header,
-                            date = settings.email.date,
-                            content = settings.email.content,
-                            to = settings.email.to,
-                            copy = settings.email.copy,
-                            hidden_copy = settings.email.hidden_copy,
-                            tags = settings.email.tags,        
-                        });*/
-
                         return server.saveEmail(settings.email);
 
                     case UserConditions.getUsers:
