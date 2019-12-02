@@ -91,9 +91,20 @@ namespace DV_client
 
         private void BT_doEmail_Click(object sender, EventArgs e)
         {
+
+            Console.WriteLine(input_settings.email != null ? input_settings.email.id : -1);
+            Console.WriteLine(RTB_content.Text);
+            Console.WriteLine(DTP_date.Value);
+            Console.WriteLine(users[CB_from.SelectedIndex].id);
+            Console.WriteLine(TB_header.Text);
+            Console.WriteLine(to.Length + " TO");
+            Console.WriteLine(copy.Length+ " copy");
+            Console.WriteLine(hidden_copy.Length+ " hidden_copy");
+            Console.WriteLine(tag .Length+ " tag");
+
             Email email_for_send = new Email()
             {
-                id = input_settings.email.id,
+                id = input_settings.email != null ? input_settings.email.id : -1,
                 content = RTB_content.Text,
                 date = DTP_date.Value,
                 from = users[CB_from.SelectedIndex].id,
